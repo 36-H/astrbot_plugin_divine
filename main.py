@@ -35,14 +35,13 @@ class MyPlugin(Star):
         ''' 占卜 '''  # 这是 handler 的描述，将会被解析方便用户了解插件内容。建议填写。
         # 随机选择一个GIF文件
         selected_gif = random.choice(self.gif_files)
-        logger.info(f"占卜结果：{selected_gif}")
+        logger.debug(f"占卜结果：{selected_gif}")
         # 构建完整路径
         full_path = os.path.join(folder_path, selected_gif)
-        logger.info(f"占卜结果路径：{full_path}")
-
+        logger.debug(f"占卜结果路径：{full_path}")
+        # yield event.image_result(full_path)
         chain = [
             At(qq=event.get_sender_id()),  # At 消息发送者
-            Plain("占卜结果如下："),
-            Image.fromFileSystem(folder_path),  # 从本地文件目录发送图片
+            Image.fromFileSystem(f"{full_path}"),  # 从本地文件目录发送图片
         ]
         yield event.chain_result(chain)
