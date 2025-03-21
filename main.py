@@ -35,7 +35,7 @@ class MyPlugin(Star):
         ''' 占卜 '''  # 这是 handler 的描述，将会被解析方便用户了解插件内容。建议填写。
         # 随机选择一个GIF文件
         selected_gif = random.choice(self.gif_files)
-
+        logger.info(f"占卜结果：{selected_gif}")
         # 构建完整路径
         full_path = os.path.abspath(os.path.join(folder_path, selected_gif))
 
