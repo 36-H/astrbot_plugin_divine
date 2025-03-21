@@ -39,14 +39,10 @@ class MyPlugin(Star):
         # 构建完整路径
         full_path = os.path.join(folder_path, selected_gif)
         logger.info(f"占卜结果路径：{full_path}")
-        # 二次验证文件存在性
 
-        if not os.path.isfile(full_path):
-            yield event.plain_result("出错哩！占卜图片缺失......")
-        else:
-            chain = [
-                At(qq=event.get_sender_id()),  # At 消息发送者
-                Plain("占卜结果如下："),
-                Image.fromFileSystem(folder_path),  # 从本地文件目录发送图片
-            ]
-            yield event.chain_result(chain)
+        chain = [
+            At(qq=event.get_sender_id()),  # At 消息发送者
+            Plain("占卜结果如下："),
+            Image.fromFileSystem(folder_path),  # 从本地文件目录发送图片
+        ]
+        yield event.chain_result(chain)
