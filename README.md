@@ -1,8 +1,6 @@
-# helloworld
+# divine
 
-AstrBot 插件模板
-
-A template plugin for AstrBot plugin feature
+塔罗占卜
 
 # 支持
 

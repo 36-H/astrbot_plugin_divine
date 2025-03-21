@@ -6,7 +6,7 @@ from astrbot.api.star import Context, Star, register
 from astrbot.api import logger
 from astrbot.core.message.components import At, Plain, Image
 
-folder_path = './tarot'
+folder_path = 'data/plugins/astrbot_plugin_divine/tarot'
 
 
 @register("divine", "Helios", "占卜插件", "1.0.0")
@@ -31,7 +31,7 @@ class MyPlugin(Star):
 
     # 注册指令的装饰器。指令名为 占卜。
     @filter.command("占卜")
-    async def helloworld(self, event: AstrMessageEvent):
+    async def divine(self, event: AstrMessageEvent):
         ''' 占卜 '''  # 这是 handler 的描述，将会被解析方便用户了解插件内容。建议填写。
         # 随机选择一个GIF文件
         selected_gif = random.choice(self.gif_files)
