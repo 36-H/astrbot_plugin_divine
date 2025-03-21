@@ -6,7 +6,7 @@ from astrbot.api.star import Context, Star, register
 from astrbot.api import logger
 from astrbot.core.message.components import At, Plain, Image
 
-folder_path = 'tarot'
+folder_path = './tarot'
 
 
 @register("divine", "Helios", "占卜插件", "1.0.0")
