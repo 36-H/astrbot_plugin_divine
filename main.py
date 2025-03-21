@@ -37,7 +37,7 @@ class MyPlugin(Star):
         selected_gif = random.choice(self.gif_files)
         logger.info(f"占卜结果：{selected_gif}")
         # 构建完整路径
-        full_path = os.path.abspath(os.path.join(folder_path, selected_gif))
+        full_path = os.path.join(folder_path, selected_gif)
         logger.info(f"占卜结果路径：{full_path}")
         # 二次验证文件存在性
 
